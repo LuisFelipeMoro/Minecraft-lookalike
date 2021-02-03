@@ -20,7 +20,7 @@ def update():
 
     block.Selected()
 
-class Selected_block(Entity):
+class   Selected_block(Entity):
 
     def __init__(self, texture = 'grass_block'):
         super().__init__(
@@ -91,6 +91,7 @@ class Hand(Entity):
 for z in range(20):
     for x in range(20):
         voxel = Voxel(position=(x,0,z))
+        voxel = Voxel(position=(x,-1,z), texture = 'dirt_block')
 
 
 player = FirstPersonController()
@@ -99,4 +100,6 @@ hand = Hand()
 block = Selected_block()
 
 engine.run()
+
+
 
