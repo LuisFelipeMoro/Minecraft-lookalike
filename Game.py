@@ -18,6 +18,26 @@ def update():
     else:
         hand.passive()
 
+    block.Selected()
+
+class Selected_block(Entity):
+
+    def __init__(self, texture = 'grass_block'):
+        super().__init__(
+            parent=camera.ui,
+            model='block',
+            scale=0.05,
+            color = color.white,
+            texture='assets/grass_block',
+            rotation=Vec3(0, -20, -8),
+            position=Vec2(0.75, 0.40),
+        )
+    def Selected(self):
+        if block_pick == 1: self.texture = 'grass_block'
+        if block_pick == 2: self.texture = 'dirt_block'
+        if block_pick == 3: self.texture = 'stone_block'
+        if block_pick == 4: self.texture = 'brick_block'
+
 class Voxel(Button):
 
     def __init__(self, position = (0,0,0), texture = 'grass_block'):
@@ -76,6 +96,7 @@ for z in range(20):
 player = FirstPersonController()
 sky = Sky()
 hand = Hand()
+block = Selected_block()
 
 engine.run()
 
